@@ -1,0 +1,63 @@
+p {
+    font-size: 16px; 
+    color: #333; 
+    line-height: 1.6; 
+}
+
+#overview {
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    border-left: 4px solid #007BFF;  
+}
+.button {
+    background-color: #007BFF; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; 
+    margin: 5px; 
+}
+nav a {
+    color: #007BFF; 
+    text-decoration: none; 
+    padding: 10px; 
+}
+
+nav a:hover {
+    color: #0056b3; 
+    text-decoration: underline; 
+}
+
+a:hover, a:focus {
+    color: #d63384; 
+    outline: none; 
+}
+
+
+#team {
+    text-align: center; 
+    padding: 20px;
+}
+
+.team-member {
+    margin: 20px; 
+    display: inline-block; 
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid rgb(41, 39, 39); 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    display: block; 
+    margin: 0 auto 10px;
+}
+
+.team-member h3, .team-member p {
+    margin: 0; 
+    padding: 5px; 
+}
