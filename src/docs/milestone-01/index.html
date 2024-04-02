@@ -6,12 +6,18 @@
     <title>Locality - Local Business Finder App</title>
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&family=Roboto:wght@400&display=swap" rel="stylesheet">
+
     <!-- JavaScript Files -->
     <script type="module" src="script.js" defer></script>
 </head>
 <body>
-    <header id="vision">
-        <h1>Locality: Connecting You to Nearby Businesses</h1>
+    <header>
+        <div id="typing-effect-container">
+            <h1 id="vision"></h1>
+        </div>
+        <!-- <p id="bio">Discover local businesses around you with ease.</p> -->
     </header>
     
     <nav>
@@ -24,16 +30,36 @@
         <a href="#real-world">Real-World Connection</a> |
         <a href="#integrative-experience">Integrative Experience</a>
     </nav>
-
-    <section id="team">
-        <h2>Our Team</h2>
-        <div class="team-member">
-            <img src="images/anushka-trehan-profile-pic.JPG" alt="Name" class="profile-pic">
-            <h3>Anushka Trehan</h3>
-            <p>My name is Anushka, and I'm a budding SWE. I primarily enjoy Backend and am looking into making Computer Vision and AI my future career! I'm currently an Amazon SDE Intern, and will be working on Machine Learning Projects there.</p></div>
+        <section id="team">
+            <h2>Our Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="/Users/anushkatrehan/Desktop/cs326/CS326/images/anushka-trehan-profile-pic.JPG" alt="Anushka Trehan" class="profile-pic">
+                    <h3>Anushka Trehan</h3>
+                    <p>My name is Anushka, and I'm a budding SWE. I primarily enjoy Backend and am looking into making Computer Vision and AI as my future career! I'm currently an Amazon SDE Intern, and will be working on Machine Learning Projects there.</p>
+                </div>
+        
+                <div class="team-member">
+                    <img src="images/anushka-trehan-profile-pic.JPG" alt="Taher Kachwala" class="profile-pic">
+                    <h3>Taher Kachwala</h3>
+                    <p>bio</p>
+                </div>
+        
+                <div class="team-member">
+                    <img src="images/anushka-trehan-profile-pic.JPG" alt="Ismail" class="profile-pic">
+                    <h3>Ismail</h3>
+                    <p>bio</p>
+                </div>
+        
+                <div class="team-member">
+                    <img src="images/anushka-trehan-profile-pic.JPG" alt="Sonit" class="profile-pic">
+                    <h3>Sonit</h3>
+                    <p>bio</p>
+                </div>
+            </div>
         </section>
+        
     <main>
-
         <!-- Main content of the document -->
         <article>
             <!-- Primary content like a blog post or article -->
@@ -78,6 +104,7 @@
             <!-- Side content like ads, links to other posts, or author info -->
         </aside>
     </main>
+
 
     <footer>
         <!-- Footer content like copyright, links to privacy policy, etc. -->

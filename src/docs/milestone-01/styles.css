@@ -1,3 +1,37 @@
+
+header {
+    text-align: center;
+    padding: 40px;
+    background-color: #007BFF; 
+    color: white;
+}
+
+#typing-effect-container {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2em; 
+    border-right: 2px solid white; 
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#bio {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 25px; 
+    font-size: 1.2em;
+    color: #B0D0FF; 
+}
+
+#vision {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2em;
+    height: 1.5em; 
+    border-right: .15em solid rgb(136, 85, 85); 
+    white-space: nowrap; 
+    overflow: hidden; 
+    margin: 0 auto; 
+}
+
 p {
     font-size: 16px; 
     color: #333; 
@@ -9,6 +43,36 @@ p {
     padding: 20px; 
     border-left: 4px solid #007BFF;  
 }
+
+#data-requirements {
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    border-left: 4px solid #007BFF;  
+}
+
+#application-parts {
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    border-left: 4px solid #007BFF;  
+}
+
+#wire-frames {
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    border-left: 4px solid #007BFF;  
+}
+#integrative-experience {
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    border-left: 4px solid #007BFF;  
+}
+
+#real-world {
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    border-left: 4px solid #007BFF;  
+}
+
 .button {
     background-color: #007BFF; 
     color: white; 
@@ -19,45 +83,86 @@ p {
     display: inline-block; 
     margin: 5px; 
 }
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: rgb(231, 233, 236);
+    color: #333;
+}
+
+nav {
+    text-align: center;
+    background-color: #000000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+
 nav a {
-    color: #007BFF; 
-    text-decoration: none; 
-    padding: 10px; 
+    color: #007BFF;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    font-size: 16px;
+    background-color: #182532;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-nav a:hover {
-    color: #0056b3; 
-    text-decoration: underline; 
+nav a:hover, nav a:focus {
+    color: #0056b3;
+    background-color: #e7e7e7;
+    text-decoration: none;
+    outline: none;
 }
 
-a:hover, a:focus {
-    color: #d63384; 
-    outline: none; 
+nav a:not(:last-child):after {
+    content: "|";
+    color: #ddd;
+    margin-left: 10px;
+}
+
+nav a:hover:after, nav a:focus:after {
+    color: transparent;
 }
 
 
+
+/* Updated CSS for team member profiles */
 #team {
-    text-align: center; 
+    text-align: center;
     padding: 20px;
 }
 
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .team-member {
-    margin: 20px; 
-    display: inline-block; 
+    flex: 1;
+    max-width: 200px; /* Adjust as needed */
+    text-align: center;
 }
 
 .profile-pic {
     width: 100px;
-    height: 100px; 
-    border-radius: 50%; 
-    object-fit: cover; 
-    border: 3px solid rgb(41, 39, 39); 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-    display: block; 
-    margin: 0 auto 10px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #292727; /* Darker border color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
-.team-member h3, .team-member p {
-    margin: 0; 
-    padding: 5px; 
+.team-member h3 {
+    margin: 5px 0;
+    font-size: 18px; /* Increased font size */
+}
+
+.team-member p {
+    margin: 0;
+    font-size: 14px; /* Increased font size */
 }
