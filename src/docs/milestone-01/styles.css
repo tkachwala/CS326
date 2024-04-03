@@ -60,7 +60,8 @@ p {
     padding: 20px; 
     border-left: 4px solid #007BFF;  
 }
-#integrative-experience {
+
+#integrative-experience{
     background-color: #f9f9f9; 
     padding: 20px; 
     border-left: 4px solid #007BFF;  
@@ -82,6 +83,7 @@ p {
     display: inline-block; 
     margin: 5px; 
 }
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
