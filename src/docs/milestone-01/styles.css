@@ -6,8 +6,8 @@ header {
 }
 
 #typing-effect-container {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 2em; 
+    font-family: 'caveat', monospace;
+    font-size: 40px; 
     border-right: 2px solid white; 
     white-space: nowrap;
     overflow: hidden;
@@ -22,8 +22,8 @@ header {
 }
 
 #vision {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 2em;
+    font-family: 'caveat', monospace;
+    font-size: 36px;
     height: 1.5em; 
     border-right: .15em solid rgb(136, 85, 85); 
     white-space: nowrap; 
