@@ -2,10 +2,20 @@
   "devDependencies": {
     "html-validate": "^8.11.1",
     "http-server": "^14.1.1",
+    "parcel": "^2.12.0",
     "prettier": "^3.2.5"
-  }, 
+  },
   "scripts": {
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
-    "validate-html": "html-validate src/**/*.html"
+    "validate-html": "html-validate src/**/*.html",
+    "milestone-02": "http-server src/client -p 3000 -c-1 -o -s",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "esm": "^3.2.25",
+    "particles.js": "^2.0.0",
+    "pouchdb": "^8.0.1",
+    "pouchdb-browser": "^8.0.1"
   }
 }
