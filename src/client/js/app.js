@@ -180,3 +180,13 @@ function showError(error) {
             break;
     }
 }
+
+// Help page
+document.addEventListener('DOMContentLoaded', () => {
+    const helpButton = document.getElementById('helpButton');
+    helpButton.addEventListener('click', () => {
+        const helpContent = document.getElementById('helpContent');
+        helpContent.style.display = 'block';
+    });
+});
+
