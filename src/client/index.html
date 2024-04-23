@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,32 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - Locality App</title>
     <link rel="stylesheet" href="styles.css">
-    <script type="module" src="js/app.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzrmnRQBjenxQy6V1p_TLLZEk_7O4fqGg"></script>
-
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script type="module" src="js/app.js" defer></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-    <script type="module" src="js/app.js"></script>
-    <div id="welcome">
-        <h1>Welcome to Locality</h1>
-        <input type="email" id="email" placeholder="Enter your email" required>
-        <button>Enter</button>
-        <button id="helpButton">Help</button>
-        <div id="map" style="height: 400px; display: none;"></div>
+    <h1 id="typing-effect"></h1>
+    <div id="particles-js"></div>
+    <!-- <div id="welcome">
+         <div id="animation-container" style="width: 400px; height: 400px;">
+            <script>
+                var animation = bodymovin.loadAnimation({
+                  container: document.getElementById('animation-container'), // Connect our animation container
+                  path: 'src/Eating Sushi.json', // Set the JSON file path
+                  renderer: 'svg', 
+                  loop: true, 
+                  autoplay: true, 
+                  name: "Demo Animation" 
+                });
+              </script>
+            </div> -->
+        <!-- <input type="email" id="email" placeholder="Enter your email" required>
+        <button>Enter</button> -->
+    <!-- </div> --> 
+
+    <div class="flex-container">
+        <div id="welcome">
+            <div id="type">
+                <h1 id="typing-effect"></h1>
+             </div>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button>Enter</button>
+        </div>
+        <dotlottie-player
+            src="https://lottie.host/37280ffc-7c56-41c3-b85e-039979de0164/dG30ErZ6wV.json"
+            background="transparent"
+            speed="0.5"
+            style="width: 500px; height: 500px;" 
+            loop
+            autoplay>
+        </dotlottie-player>
     </div>
 
-    <div id="helpContent" style="display: none;">
-        <h1>Help & Support</h1>
-        <p>Find answers to common questions and learn more about the Locality App.</p>
-        <ul>
-            <li>How to use the map?</li>
-            <li>How to update your profile?</li>
-            <li>Forget your password?</li>
-        </ul>
-        <p>For more assistance, contact support@localityapp.com.</p>
-    </div>
-    <script type="module" src="js/app.js"></script>
-
-    
 </body>
 </html>
