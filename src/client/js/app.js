@@ -186,7 +186,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const helpButton = document.getElementById('helpButton');
     helpButton.addEventListener('click', () => {
         const helpContent = document.getElementById('helpContent');
-        helpContent.style.display = 'block';
+        if (helpContent.style.display === 'block') {
+            helpContent.style.display = 'none';  
+        } else {
+            helpContent.style.display = 'block'; 
+        }
     });
 });
 
