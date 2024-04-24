@@ -5,18 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Map - Locality App</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzrmnRQBjenxQy6V1p_TLLZEk_7O4fqGg"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzrmnRQBjenxQy6V1p_TLLZEk_7O4fqGg&libraries=places"></script>
     <script type="module" src="js/map.js" defer></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzrmnRQBjenxQy6V1p_TLLZEk_7O4fqGg"></script>
+
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+    <dotlottie-player src="https://lottie.host/ac68e01c-654f-41fd-b5b2-2868d35ecd94/TblPqXATwq.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+
 </head>
 <body>
+    
     <div class="container">
-        <div id="map"></div>
+        <div id="map-container">
+            <!-- <div id="map"></div> -->
+            <div id="map" style="width: 75%; height: 100vh; float: left;"></div>
+            <div id="info" style="width: 25%; height: 100vh; float: left; overflow-y: scroll; background-color: #f4f4f4; padding: 20px; box-sizing: border-box; display: none;">
+                <button onclick="document.getElementById('info').style.display='none';">Close</button>
+            </div>
+        </div>
+
+       
+        <dotlottie-player src="https://lottie.host/ac68e01c-654f-41fd-b5b2-2868d35ecd94/TblPqXATwq.json" background="transparent" speed="1" style="width: 300px; height: 300px;"></dotlottie-player>
+      
+        
         <div class="sidebar">
+            
             <ul>
                 <li><a href="#">Tune Out</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="#">About Us</a></li>
             </ul>
+        </div>
+        <div class="animation-container">
+            <dotlottie-player src="https://lottie.host/ac68e01c-654f-41fd-b5b2-2868d35ecd94/TblPqXATwq.json" background="transparent" speed="1" style="width: 600px; height: 600px;"></dotlottie-player>
         </div>
     </div>
 </body>

@@ -25,48 +25,61 @@ header nav ul li a:hover {
     color: black;
 }
 
-#map {
-    height: 400px; /* Adjust the height of the map */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #000; 
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden; 
 }
+
+.main-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; 
+  text-align: center;
+}
+
+/* #locality-heading {
+  font-size: 48px; 
+  color: #fff;
+} */
 
 #particles-js {
   position: absolute;
   width: 100%;
   height: 100%;
   background: #000000;
-  z-index: 0;  /* Ensure it is behind other content but visible */
+  z-index: 0;  
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  background: #000; /* Solid black background */
-  color: #fff;
-  font-family: 'Courier New', monospace;
-  overflow: hidden; /* Ensures no scrolling */
-}
-
-.flex-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100vh;
-  
+#animation-container {
+  position: fixed;        
+  top: 20%;                  
+  left: 70%;                
+  transform: translateY(-50%); 
+  width: 700px;          
+  height: 700px;          
+  display: flex;           
+  justify-content: center;   
+  align-items: center;       
+  z-index: 1000;              
 }
 
 #welcome {
   position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+  bottom: 20%;              
+  right: 0%;               
+  width: 70%;
   max-width: 600px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   text-align: center;
-  background: rgba(0, 0, 0, 0.75); /* Semi-transparent black background */
+  background: rgba(0, 0, 0, 0.75); 
   border-radius: 10px;
-  z-index: 1; 
+  z-index: 1;              
 }
 
 input[type="email"], button {
@@ -75,7 +88,6 @@ input[type="email"], button {
   margin-top: 10px;
   border: none;
   border-radius: 4px;
-  font-family: 'Courier New', monospace;
 }
 
 button {
@@ -90,11 +102,100 @@ button:hover {
 }
 
 #typing-effect {
-  font-size: 24px;
+  font-size: 90px; /* Increase font size for better visibility */
   font-weight: bold;
   background: linear-gradient(to right, #22ab50, #13ff0b);
   -webkit-background-clip: text;
   color: transparent; /* Hide the text color, show the gradient */
-  display: inline;
+  position: absolute; /* Position it absolutely for exact placement */
+  top: 40%; /* Adjust this value to move it higher or lower */
+  left: 70%; /* Center horizontally */
+  transform: translateX(-50%); /* Center it based on its width */
+  z-index: 3; /* Ensure it's above other content */
+  display: block; /* Use block to help with positioning */
+  width: 100%; /* Ensures the background gradient covers the text fully */
+  text-align: center; /* Center the text within its block */
 }
 
+/* ========================================================================================= */
+
+
+
+/* map.html changes here */
+#map {
+  top: -290px;
+  height: 1300px;
+  left: 750px;
+  width: 800px; 
+  background-color: #f0f0f0;
+  border: 5px solid rgb(232, 130, 13);
+  box-sizing: border-box;
+}
+/* 
+#container {
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+  width: 100vw;
+} */
+
+
+/* sidebar */
+.sidebar {
+  width: 150px; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  height: 100%;
+  background-color: #222; 
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); 
+  z-index: 2; 
+}
+
+.sidebar ul {
+  list-style-type: none; 
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+}
+
+.sidebar ul li {
+  width: 100%;
+}
+
+.sidebar ul li a {
+  display: block;
+  color: white;
+  text-align: left;
+  padding: 20px 20px; /* Larger padding for better touch target */
+  text-decoration: none;
+  border-bottom: 1px solid #242424; /* Adds a subtle separator */
+}
+
+.sidebar ul li a:hover {
+  background-color: #4fc757; /* Darker background on hover */
+  color: #ddd; /* Lighter text color on hover */
+}
+
+/* Optional: Add a transition effect */
+.sidebar ul li a {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#info {
+  position: fixed; 
+  right: 0; /* Align to the right side of the screen */
+  top: 0; /* Align to the top of the screen */
+  width: 25%; /* Sidebar takes up 25% of screen width */
+  height: 100%; /* Full height of the viewport */
+  background-color: #000000; /* White background */
+  box-shadow: -2px 0 5px rgba(102, 86, 133, 0.1); /* Shadow for depth */
+  padding: 20px; /* Padding around the content */
+  box-sizing: border-box; /* Includes padding in width and height */
+  overflow-y: auto; /* Enable scrolling if content is too long */
+  z-index: 1000; /* Make sure it's above other content */
+  display: none; /* Initially hidden */
+}
