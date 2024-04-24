@@ -102,20 +102,19 @@ button:hover {
 }
 
 #typing-effect {
-  font-family: 'Impact', sans-serif;
-  font-size: 90px; /* Increase font size for better visibility */
+  font-size: 90px; 
   font-weight: bold;
   background: linear-gradient(to right, #22ab50, #13ff0b);
   -webkit-background-clip: text;
-  color: transparent; /* Hide the text color, show the gradient */
-  position: absolute; /* Position it absolutely for exact placement */
-  top: 40%; /* Adjust this value to move it higher or lower */
-  left: 84%; /* Center horizontally */
-  transform: translateX(-50%); /* Center it based on its width */
-  z-index: 3; /* Ensure it's above other content */
-  display: block; /* Use block to help with positioning */
-  width: 100%; /* Ensures the background gradient covers the text fully */
-  text-align: center; /* Center the text within its block */
+  color: transparent; 
+  position: absolute; 
+  top: 40%; 
+  left: 84%; 
+  transform: translateX(-50%); 
+  z-index: 3; 
+  display: block; 
+  width: 100%; 
+  text-align: center; 
 }
 
 /* ========================================================================================= */
@@ -124,10 +123,10 @@ button:hover {
 
 /* map.html changes here */
 #map {
-  top: -270px;
-  height: 1200px;
-  left: 1100px;
-  width: 1300px; 
+  /* /* top: -270px; */
+  height: 70vh;
+  /* left: 1100px; */ 
+  width: 70vw; 
   background-color: #f0f0f0;
   border: 5px solid rgb(232, 130, 13);
   box-sizing: border-box;
@@ -171,32 +170,61 @@ button:hover {
   display: block;
   color: white;
   text-align: left;
-  padding: 20px 20px; /* Larger padding for better touch target */
+  padding: 20px 20px; 
   text-decoration: none;
-  border-bottom: 1px solid #242424; /* Adds a subtle separator */
+  border-bottom: 1px solid #242424; 
 }
 
 .sidebar ul li a:hover {
-  background-color: #4fc757; /* Darker background on hover */
-  color: #ddd; /* Lighter text color on hover */
+  background-color: #4fc757; 
+  color: #ddd;
 }
 
-/* Optional: Add a transition effect */
 .sidebar ul li a {
   transition: background-color 0.3s, color 0.3s;
 }
 
 #info {
   position: fixed; 
-  right: 250px; /* Align to the right side of the screen */
-  top: 100px; /* Align to the top of the screen */
-  width: 15%; /* Sidebar takes up 25% of screen width */
-  height: 20%; /* Full height of the viewport */
-  background-color: #000000; /* White background */
-  box-shadow: -2px 0 5px rgba(102, 86, 133, 0.1); /* Shadow for depth */
-  padding: 20px; /* Padding around the content */
-  box-sizing: border-box; /* Includes padding in width and height */
-  overflow-y: auto; /* Enable scrolling if content is too long */
-  z-index: 1000; /* Make sure it's above other content */
-  display: none; /* Initially hidden */
+  right: 250px; 
+  top: 100px; 
+  width: 15%; 
+  height: 20%; 
+  background-color: #000000; 
+  box-shadow: -2px 0 5px rgba(102, 86, 133, 0.1); 
+  padding: 20px; 
+  box-sizing: border-box; 
+  overflow-y: auto; 
+  z-index: 1000; 
+  display: none; 
+}
+
+
+
+
+/* 
+#bucket-list {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+  transform: translateX(100%);
+  opacity: 0;
+} */
+
+#bucket-list.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+#bucket-list {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  width: 200px;
+  background: #fff;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #ec0606;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+  /* z-index: 1000; */
+  height: 300px;
+  overflow-y: auto;
 }

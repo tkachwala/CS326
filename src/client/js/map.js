@@ -36,9 +36,9 @@ function initMap() {
     });
 }
 
-function createMarker(place, map) {
-    if (!place.geometry || !place.geometry.location) return;
 
+
+function createMarker(place, map) {
     const marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location,
@@ -46,20 +46,44 @@ function createMarker(place, map) {
             url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
         }
     });
-    const contentString = `
-        <div>
-            <h2>${place.name}</h2>
-            <p>Address: ${place.vicinity}</p>
-            <p>Rating: ${place.rating || 'Not rated'}</p>
-        </div>`;
+
     marker.addListener('click', () => {
         const infoPanel = document.getElementById('info');
-        infoPanel.innerHTML = contentString; 
-        infoPanel.style.display = 'block'; 
+        infoPanel.innerHTML = `
+            <div>
+                <h2>${place.name}</h2>
+                <p>Address: ${place.vicinity}</p>
+                <p>Rating: ${place.rating || 'Not rated'}</p>
+                <button id="addButton-${place.place_id}" class="add-to-bucket">Add to Bucket List</button>
+            </div>`;
+        infoPanel.style.display = 'block';
     });
 }
 
+// Listen on the parent container, checking if the clicked element has a class 'add-to-bucket'
+document.getElementById('info').addEventListener('click', function(event) {
+    if (event.target.classList.contains('add-to-bucket')) {
+        const buttonId = event.target.id;
+        const placeId = buttonId.replace('addButton-', '');
+        const placeName = document.querySelector(`#info h2`).textContent;
+        const placeAddress = document.querySelector(`#info p`).textContent;
+        addToBucketList(placeId, placeName, placeAddress);
+    }
+});
 
+window.addToBucketList = function(placeId, name, vicinity) {
+    const bucketList = document.getElementById('bucket-list-items');
+    const newItem = document.createElement('li');
+    newItem.innerHTML = `<strong>${name}</strong>: ${vicinity}`;
+    bucketList.appendChild(newItem);
+};
+
+
+
+
+function escapeHTML(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
 
 function handleLocationError(browserHasGeolocation, pos) {
     console.log(browserHasGeolocation ?
