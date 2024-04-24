@@ -109,7 +109,7 @@ button:hover {
   color: transparent; 
   position: absolute; 
   top: 40%; 
-  left: 84%; 
+  left: 85%; 
   transform: translateX(-50%); 
   z-index: 3; 
   display: block; 
