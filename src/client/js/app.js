@@ -201,6 +201,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     typeLetter();
+
+    function startTyping() {
+        currentIndex = 0;
+        typingElement.textContent = ''; // Reset text content
+        typeLetter();
+    }
+    typingElement.addEventListener('mouseenter', startTyping);
 });
 
 
