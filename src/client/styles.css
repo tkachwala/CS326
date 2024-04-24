@@ -123,22 +123,13 @@ button:hover {
 
 /* map.html changes here */
 #map {
-  /* /* top: -270px; */
   height: 70vh;
   /* left: 1100px; */ 
   width: 70vw; 
   background-color: #f0f0f0;
-  border: 5px solid rgb(232, 130, 13);
-  box-sizing: border-box;
+  border: 5px solid rgb(3, 198, 241);
+  box-sizing: borderrgb(13, 232, 203)
 }
-/* 
-#container {
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh;
-  width: 100vw;
-} */
-
 
 /* sidebar */
 .sidebar {
@@ -176,7 +167,7 @@ button:hover {
 }
 
 .sidebar ul li a:hover {
-  background-color: #4fc757; 
+  background-color: rgb(3, 198, 241);; 
   color: #ddd;
 }
 
@@ -199,32 +190,43 @@ button:hover {
   display: none; 
 }
 
-
-
-
-/* 
-#bucket-list {
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease;
-  transform: translateX(100%);
-  opacity: 0;
-} */
-
-#bucket-list.show {
-  transform: translateX(0);
-  opacity: 1;
-}
-
 #bucket-list {
   position: fixed;
   right: 0;
   top: 50%;
-  width: 200px;
+  transform: translateY(-50%);
+  width: 300px;
   background: #fff;
   color: #333;
-  padding: 10px;
-  border: 1px solid #ec0606;
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
-  /* z-index: 1000; */
-  height: 300px;
+  padding: 20px; 
+  border: 1px solid #d4af37;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  height: auto; 
+  max-height: 500px; 
   overflow-y: auto;
+  z-index: 1000; 
+  border-radius: 8px; 
+  transition: all 0.3s ease-in-out; 
+}
+
+#bucket-list.show {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+
+
+#bucket-list::-webkit-scrollbar {
+  width: 8px; 
+}
+
+#bucket-list::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+#bucket-list::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+#bucket-list::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
