@@ -188,7 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(typeLetter, 150); // Speed of typing
         }
     }
-    typeLetter(); 
+    typeLetter();
+
+    function startTyping() {
+        currentIndex = 0;
+        typingElement.textContent = ''; // Reset text content
+        typeLetter();
+    }
+    typingElement.addEventListener('mouseenter', startTyping);
 });
 
 
@@ -373,4 +380,19 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         retina_detect: true
     });
+});
+
+// Function for help screen
+function toggleHelp() {
+    const helpContent = document.getElementById('helpContent');
+    if (helpContent.style.display === 'none') {
+        helpContent.style.display = 'block';
+    } else {
+        helpContent.style.display = 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const helpButton = document.getElementById('helpButton');
+    helpButton.addEventListener('click', toggleHelp);
 });

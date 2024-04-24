@@ -57,11 +57,11 @@ html, body {
 
 #animation-container {
   position: fixed;        
-  top: 20%;                  
-  left: 70%;                
-  transform: translateY(-50%); 
-  width: 700px;          
-  height: 700px;          
+  top: 50%;                  
+  left: 50%;
+  transform: translate(-50%, -50%);                
+  width: 600px;    
+  height: 600px;     
   display: flex;           
   justify-content: center;   
   align-items: center;       
@@ -102,6 +102,7 @@ button:hover {
 }
 
 #typing-effect {
+  font-family: 'Impact', sans-serif;
   font-size: 90px; /* Increase font size for better visibility */
   font-weight: bold;
   background: linear-gradient(to right, #22ab50, #13ff0b);
@@ -109,7 +110,7 @@ button:hover {
   color: transparent; /* Hide the text color, show the gradient */
   position: absolute; /* Position it absolutely for exact placement */
   top: 40%; /* Adjust this value to move it higher or lower */
-  left: 70%; /* Center horizontally */
+  left: 84%; /* Center horizontally */
   transform: translateX(-50%); /* Center it based on its width */
   z-index: 3; /* Ensure it's above other content */
   display: block; /* Use block to help with positioning */
@@ -123,10 +124,10 @@ button:hover {
 
 /* map.html changes here */
 #map {
-  top: -290px;
-  height: 1300px;
-  left: 750px;
-  width: 800px; 
+  top: -270px;
+  height: 1200px;
+  left: 1100px;
+  width: 1300px; 
   background-color: #f0f0f0;
   border: 5px solid rgb(232, 130, 13);
   box-sizing: border-box;
@@ -187,10 +188,10 @@ button:hover {
 
 #info {
   position: fixed; 
-  right: 0; /* Align to the right side of the screen */
-  top: 0; /* Align to the top of the screen */
-  width: 25%; /* Sidebar takes up 25% of screen width */
-  height: 100%; /* Full height of the viewport */
+  right: 250px; /* Align to the right side of the screen */
+  top: 100px; /* Align to the top of the screen */
+  width: 15%; /* Sidebar takes up 25% of screen width */
+  height: 20%; /* Full height of the viewport */
   background-color: #000000; /* White background */
   box-shadow: -2px 0 5px rgba(102, 86, 133, 0.1); /* Shadow for depth */
   padding: 20px; /* Padding around the content */
