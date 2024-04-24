@@ -123,9 +123,11 @@ button:hover {
 
 /* map.html changes here */
 #map {
-  height: 70vh;
-  /* left: 1100px; */ 
-  width: 70vw; 
+  /* /* top: -270px; */
+  height: 100%;
+  left: 10%;
+  /* right: 10%; */
+  width: 70%; 
   background-color: #f0f0f0;
   border: 5px solid rgb(3, 198, 241);
   box-sizing: borderrgb(13, 232, 203)
@@ -133,7 +135,7 @@ button:hover {
 
 /* sidebar */
 .sidebar {
-  width: 150px; 
+  width: 10%; 
   position: fixed; 
   top: 0; 
   left: 0; 
@@ -177,10 +179,11 @@ button:hover {
 
 #info {
   position: fixed; 
-  right: 250px; 
-  top: 100px; 
+  right: 250px;
+  left: 60%; 
+  top: 10%; 
   width: 15%; 
-  height: 20%; 
+  height: 30%; 
   background-color: #000000; 
   box-shadow: -2px 0 5px rgba(102, 86, 133, 0.1); 
   padding: 20px; 
@@ -192,26 +195,32 @@ button:hover {
 
 #bucket-list {
   position: fixed;
+  left: 80%;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 300px;
+  top: 0;
+  width: 20%;
   background: #fff;
   color: #333;
-  padding: 20px; 
-  border: 1px solid #d4af37;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  height: auto; 
-  max-height: 500px; 
+  padding: 10px;
+  border: 1px solid #ec0606;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+  /* z-index: 1000; */
+  height: 100%;
   overflow-y: auto;
   z-index: 1000; 
   border-radius: 8px; 
   transition: all 0.3s ease-in-out; 
+  background-color: lightblue;
 }
 
 #bucket-list.show {
   transform: translateY(-50%) translateX(0);
   opacity: 1;
+}
+
+#bucket-list-items {
+  list-style-type: bullet;
+  padding: 10px 10px;
 }
 
 
