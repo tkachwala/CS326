@@ -393,3 +393,18 @@ document.addEventListener('DOMContentLoaded', () => {
         retina_detect: true
     });
 });
+
+// Function for help screen
+function toggleHelp() {
+    const helpContent = document.getElementById('helpContent');
+    if (helpContent.style.display === 'none') {
+        helpContent.style.display = 'block';
+    } else {
+        helpContent.style.display = 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const helpButton = document.getElementById('helpButton');
+    helpButton.addEventListener('click', toggleHelp);
+});
