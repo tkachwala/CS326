@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+// Initialise the google map
 function initMap() {
     const center = { lat: 37.7749, lng: -122.4194 }; // Example location (San Francisco)
     const map = new google.maps.Map(document.getElementById('map'), {
@@ -36,7 +38,11 @@ function initMap() {
     });
 }
 
-
+/**
+ * Function to create a marker on the map.
+ * @param {Object} place - Place object containing details of the location.
+ * @param {Object} map - Google Map object.
+ */
 
 function createMarker(place, map) {
     const marker = new google.maps.Marker({
@@ -79,11 +85,22 @@ window.addToBucketList = function(placeId, name, vicinity) {
 };
 
 
-
+/**
+ * Function to escape HTML special characters.
+ * @param {string} str - Input string.
+ * @returns {string} - Escaped string.
+ */
 
 function escapeHTML(str) {
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 }
+
+
+/**
+ * Function to handle location error.
+ * @param {boolean} browserHasGeolocation - Whether browser supports geolocation.
+ * @param {Object} pos - Geolocation position.
+ */
 
 function handleLocationError(browserHasGeolocation, pos) {
     console.log(browserHasGeolocation ?
