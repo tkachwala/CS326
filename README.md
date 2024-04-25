@@ -34,11 +34,15 @@ Step 3: After the installation, write this command
    
    ![Map Display](images\map-display.png)
 
-3. Bucket List: Users can add locations to their bucket list by clicking on the "Add to Bucket List" button on the map.
+3. Filter Option: The filter option allows you to customize your search based on your preference.
+
+   ![Filter Option](images\filter-button-pic.png)
+
+4. Bucket List: Users can add locations to their bucket list by clicking on the "Add to Bucket List" button on the map.
 
    ![Bucket List Button](images\add-to-bucket-list-pic.png) 
 
-4. Help Screen: Clicking on the "Help" button displays information and support options for users.
+5. Help Screen: Clicking on the "Help" button displays information and support options for users.
 
    ![Help Button](images\help-button-pic.png)
 
