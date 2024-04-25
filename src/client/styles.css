@@ -1,5 +1,3 @@
-
-
 header nav ul {
     list-style-type: none;
     overflow: hidden;
@@ -41,11 +39,6 @@ html, body {
   height: 80vh; 
   text-align: center;
 }
-
-/* #locality-heading {
-  font-size: 48px; 
-  color: #fff;
-} */
 
 #particles-js {
   position: absolute;
@@ -117,11 +110,12 @@ button:hover {
   text-align: center; 
 }
 
-/* ========================================================================================= */
-
-
+/* ==========================================================================================================================================================================*/
 
 /* map.html changes here */
+
+/* ==========================================================================================================================================================================*/
+
 #map {
   /* /* top: -270px; */
   height: 100%;
@@ -171,51 +165,6 @@ button:hover {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* sidebar 
-.sidebar {
-  width: 10%; 
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  height: 100%;
-  background-color: #222; 
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); 
-  z-index: 2; 
-}
-
-.sidebar ul {
-  list-style-type: none; 
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-}
-
-.sidebar ul li {
-  width: 100%;
-}
-
-.sidebar ul li a {
-  display: block;
-  color: white;
-  text-align: left;
-  padding: 20px 20px; 
-  text-decoration: none;
-  border-bottom: 1px solid #242424; 
-}
-
-.sidebar ul li a:hover {
-  background-color: rgb(3, 198, 241);; 
-  color: #ddd;
-}
-
-.sidebar ul li a {
-  transition: background-color 0.3s, color 0.3s;
-}
-*/
-
 #info {
   position: fixed; 
   right: 250px;
@@ -239,11 +188,9 @@ button:hover {
   top: 5%;
   width: 20%;
   background: #fff;
-  color: #333;
+  color: #fff;
   padding: 10px;
   border: 5px solid rgba(0, 0, 0, 0.75);
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
-  /* z-index: 1000; */
   height: 100%;
   overflow-y: auto;
   z-index: 1000; 
