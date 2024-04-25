@@ -28,19 +28,19 @@ Step 3: After the installation, write this command
 ## Key Functionalities
 1. Login: Users can log in to the application using their email address. Only the email "user@example.com" is accepted for login right now.
 
-   ![Login Page](images\Login-pic.png)
+   ![Login Page](images/Login-pic.png)
 
 2. Map Display: The map.html page shows a Google Map with nearby locations marked.
    
-   ![Map Display](images\map-display.png)
+   ![Map Display](images/map-display.png)
 
 3. Bucket List: Users can add locations to their bucket list by clicking on the "Add to Bucket List" button on the map.
 
-   ![Bucket List Button](images\add-to-bucket-list-pic.png) 
+   ![Bucket List Button](images/add-to-bucket-list-pic.png) 
 
 4. Help Screen: Clicking on the "Help" button displays information and support options for users.
 
-   ![Help Button](images\help-button-pic.png)
+   ![Help Button](images/help-button-pic.png)
 
 ## Note
 To access the application, use the email address "user@example.com".
