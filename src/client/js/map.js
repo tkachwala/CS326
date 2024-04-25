@@ -107,3 +107,18 @@ function handleLocationError(browserHasGeolocation, pos) {
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesnt support geolocation.');
 }
+
+
+
+// Filter Button
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButton = document.getElementById('filterButton');
+    filterButton.addEventListener('click', () => toggleFilterOptions(true));
+    const closeButton = document.getElementById('closeFilterButton');
+    closeButton.addEventListener('click', () => toggleFilterOptions(false));
+ });
+ function toggleFilterOptions(show) {
+    const filterOptions = document.getElementById('filterOptions');
+    filterOptions.style.display = show ? 'block' : 'none';
+ }
+ 
