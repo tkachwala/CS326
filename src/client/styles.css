@@ -125,15 +125,53 @@ button:hover {
 #map {
   /* /* top: -270px; */
   height: 100%;
-  left: 10%;
+  left: 20%;
   /* right: 10%; */
-  width: 70%; 
+  width: 60%; 
   background-color: #f0f0f0;
-  border: 5px solid rgb(3, 198, 241);
+  border: 5px solid rgba(0, 0, 0, 0.75);
   box-sizing: borderrgb(13, 232, 203)
 }
 
-/* sidebar */
+.navbar {
+  background-color: #1f9541;
+  color: white;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  
+}
+
+.navbar ul li a:hover {
+  background-color: #00b321; 
+  color: #ddd;
+}
+
+.navbar ul li a {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* sidebar 
 .sidebar {
   width: 10%; 
   position: fixed; 
@@ -176,6 +214,7 @@ button:hover {
 .sidebar ul li a {
   transition: background-color 0.3s, color 0.3s;
 }
+*/
 
 #info {
   position: fixed; 
@@ -197,20 +236,19 @@ button:hover {
   position: fixed;
   left: 80%;
   right: 0;
-  top: 0;
+  top: 5%;
   width: 20%;
   background: #fff;
   color: #333;
   padding: 10px;
-  border: 1px solid #ec0606;
+  border: 5px solid rgba(0, 0, 0, 0.75);
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
   /* z-index: 1000; */
   height: 100%;
   overflow-y: auto;
   z-index: 1000; 
-  border-radius: 8px; 
   transition: all 0.3s ease-in-out; 
-  background-color: lightblue;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 #bucket-list.show {
