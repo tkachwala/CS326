@@ -1,5 +1,7 @@
 // Import necessary items
 import db from './db.js';
+// we migjt need this db for add and get when we do the backend integration for the app
+
 document.addEventListener('DOMContentLoaded', () => {
     if (window.google && window.google.maps) {
         initMap();
@@ -14,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Initialise the google map
+// Initialize the google map using an example location
 function initMap() {
-    const center = { lat: 37.7749, lng: -122.4194 }; // Example location (San Francisco)
+    const center = { lat: 37.7749, lng: -122.4194 };
     const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
         center: center
@@ -66,7 +68,8 @@ function createMarker(place, map) {
     });
 }
 
-// Listen on the parent container, checking if the clicked element has a class 'add-to-bucket'
+// this is an event listener for the bucker. if the event's target has an add to bucket button then you add it to the bucket list element using address and placeID 
+
 document.getElementById('info').addEventListener('click', function(event) {
     if (event.target.classList.contains('add-to-bucket')) {
         const buttonId = event.target.id;
@@ -84,7 +87,6 @@ window.addToBucketList = function(placeId, name, vicinity) {
     bucketList.appendChild(newItem);
 };
 
-
 /**
  * Function to escape HTML special characters.
  * @param {string} str - Input string.
@@ -98,7 +100,7 @@ function escapeHTML(str) {
 
 /**
  * Function to handle location error.
- * @param {boolean} browserHasGeolocation - Whether browser supports geolocation.
+ * @param {boolean} browserHasGeolocation - Whether browser supports geolocation. (this is for our next implementation)
  * @param {Object} pos - Geolocation position.
  */
 
@@ -109,7 +111,6 @@ function handleLocationError(browserHasGeolocation, pos) {
 }
 
 
-
 // Filter Button
 document.addEventListener('DOMContentLoaded', () => {
     const filterButton = document.getElementById('filterButton');
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeButton = document.getElementById('closeFilterButton');
     closeButton.addEventListener('click', () => toggleFilterOptions(false));
  });
+
  function toggleFilterOptions(show) {
     const filterOptions = document.getElementById('filterOptions');
     filterOptions.style.display = show ? 'block' : 'none';

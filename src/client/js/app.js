@@ -1,7 +1,7 @@
 // This file now just handles the login functionality
 import db from './db.js';
 
-// Function to display typing effect
+// display typing effect - copy pasted from last milestone
 document.addEventListener('DOMContentLoaded', () => {
     const typingText = 'Locality';
     let currentIndex = 0;
@@ -10,39 +10,41 @@ document.addEventListener('DOMContentLoaded', () => {
     function typeLetter() {
         if (currentIndex < typingText.length) {
             typingElement.textContent += typingText[currentIndex++];
-            setTimeout(typeLetter, 150); // Speed of typing
+            setTimeout(typeLetter, 150); 
         }
     }
     typeLetter();
 });
 
-// Event listener for login button
+//listener for login button
 const loginButton = document.querySelector('button');
 loginButton.addEventListener('click', () => {
     const emailInput = document.getElementById('email').value;
     login(emailInput);
 });
 
-// Function to handle login
+//to handle login
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.querySelector('button');
     loginButton.addEventListener('click', () => {
         const emailInput = document.getElementById('email').value;
         login(emailInput);
     });
-
     function login(email) {
         if (email === "user@example.com") {
             console.log("Login successful for user@example.com");
-            window.location.href = 'map.html';  // Redirect to map page
+            window.location.href = 'map.html'; 
+            // we redirect to the map.html page once login is successful - more in depth implemenatation for backend milestone!
         } else {
             console.error("Login failed: email not recognized.");
-            // Optionally, display an error message to the user in the UI
         }
     }
 });
 
-// Initialize particle effect
+// Initialize particle effect - used on the homepage - point is to manipulate properties 
+// change basic properties here to see changes 
+// taken from particles.js github repo
+
 document.addEventListener('DOMContentLoaded', () => {
     particlesJS('particles-js', {
         particles: {
@@ -166,7 +168,8 @@ function toggleHelp() {
     }
 }
 
-// Event listener for help button
+// Event listener for help button 
+// DOM event for the help button on the big loading screen
 document.addEventListener('DOMContentLoaded', () => {
     const helpButton = document.getElementById('helpButton');
     helpButton.addEventListener('click', toggleHelp);
