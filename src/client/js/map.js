@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 // Initialize the google map using an example location
 function initMap() {
     const center = { lat: 37.7749, lng: -122.4194 };
