@@ -842,17 +842,23 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createUser", ()=>createUser);
 // Authenticate a user using bcrypt 
-parcelHelpers.export(exports, "authenticateUser", ()=>authenticateUser) // export async function addToBucketList(username, item) {
- //     const userDoc = await db.get(username);
- //     userDoc.bucketList.push(item);
- //     return db.put(userDoc);
- // }
- // // Get user's bucket list
- // export async function getBucketList(username) {
- //     const userDoc = await db.get(username);
- //     return userDoc.bucketList;
- // }
-;
+parcelHelpers.export(exports, "authenticateUser", ()=>authenticateUser);
+// export async function addToBucketList(username, item) {
+//     const userDoc = await db.get(username);
+//     userDoc.bucketList.push(item);
+//     return db.put(userDoc);
+// }
+// // Get user's bucket list
+// export async function getBucketList(username) {
+//     const userDoc = await db.get(username);
+//     return userDoc.bucketList;
+// }
+// Get user's bucket list
+parcelHelpers.export(exports, "getBucketList", ()=>getBucketList);
+// Update the bucket list 
+parcelHelpers.export(exports, "updateBucketListItem", ()=>updateBucketListItem);
+// Delete from the bucket list
+parcelHelpers.export(exports, "deleteBucketListItem", ()=>deleteBucketListItem);
 var _pouchdb = require("pouchdb");
 var _pouchdbDefault = parcelHelpers.interopDefault(_pouchdb);
 var _bcryptjs = require("bcryptjs");
@@ -893,6 +899,54 @@ async function authenticateUser(email, password) {
     } catch (error) {
         console.error("Authentication failed:", error);
         return null;
+    }
+}
+async function getBucketList(username) {
+    try {
+        const userDoc = await db.get(username);
+        return userDoc.bucketList || [];
+    } catch (error) {
+        console.error("Error retrieving bucket list:", error);
+        throw error;
+    }
+}
+async function updateBucketListItem(username, index, newItem) {
+    try {
+        const userDoc = await db.get(username);
+        userDoc.bucketList = userDoc.bucketList || [];
+        if (index >= 0 && index < userDoc.bucketList.length) {
+            userDoc.bucketList[index] = newItem;
+            await db.put(userDoc);
+            return {
+                status: "success",
+                message: "Bucket list updated successfully"
+            };
+        } else return {
+            status: "error",
+            message: "Index out of range"
+        };
+    } catch (error) {
+        console.error("Error updating bucket list item:", error);
+        throw error;
+    }
+}
+async function deleteBucketListItem(username, index) {
+    try {
+        const userDoc = await db.get(username);
+        if (index >= 0 && index < userDoc.bucketList.length) {
+            userDoc.bucketList.splice(index, 1);
+            await db.put(userDoc);
+            return {
+                status: "success",
+                message: "Bucket list item deleted successfully"
+            };
+        } else return {
+            status: "error",
+            message: "Invalid item index"
+        };
+    } catch (error) {
+        console.error("Error deleting bucket list item:", error);
+        throw error;
     }
 }
 
