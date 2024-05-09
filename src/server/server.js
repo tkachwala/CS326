@@ -2,7 +2,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { createUser, authenticateUser, getBucketList, updateBucketListItem, deleteBucketListItem } from './db.js';
+import * as db from './db.js';
 
 
 const app = express();
@@ -23,7 +23,7 @@ db.createUser('user@example.com', 'pass')
 app.post('/api/register', async (req, res) => {
     const { email, password } = req.body;
     try {
-        const result = await createUser(email, password);
+        const result = await db.createUser(email, password);
         if (result.status === 'success') {
             res.status(201).json({ message: result.message });
         } else {
@@ -39,7 +39,7 @@ app.post('/api/register', async (req, res) => {
 app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
     try {
-        const user = await authenticateUser(email, password);
+        const user = await db.authenticateUser(email, password);
         if (user) {
             res.json({ message: "Login successful", user: email });
         } else {

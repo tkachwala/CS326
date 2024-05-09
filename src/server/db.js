@@ -6,7 +6,7 @@ import bcrypt from 'bcryptjs';
 const db = new PouchDB('my_database');
 console.log('Database initialized', db);
 
-export default db;
+// export default db;
 
 export async function createUser(email, password) {
     try {
