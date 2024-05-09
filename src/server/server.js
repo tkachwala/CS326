@@ -14,22 +14,27 @@ app.get('/', (req, res) => {
 app.use(cors());
 app.use(bodyParser.json());
 
-
 db.createUser('user@example.com', 'pass')
 // new user
 // server.js
 
-app.post('/api/users', async (req, res) => {
+app.post('/api/register', async (req, res) => {
     const { email, password } = req.body;
     try {
-        const newUser = await createUser(email, password);
-        res.status(201).json({ message: 'User created successfully', data: newUser });
+        const result = await createUser(email, password);
+        if (result.status === 'success') {
+            res.status(201).json({ message: result.message });
+        } else {
+            res.status(409).json({ message: result.message });
+        }
     } catch (error) {
-        res.status(500).json({ message: 'Failed to create user', error: error.message });
+        console.error("Error creating user:", error);
+        res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 });
 
-app.post('/api/login', async (req, res) => {
+
+app.post('api/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await authenticateUser(email, password);
@@ -44,7 +49,6 @@ app.post('/api/login', async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
 
 // GET route to retrieve a user's bucket list
 app.get('/bucketlist/:username', async (req, res) => {

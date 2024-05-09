@@ -840,9 +840,6 @@ exports.export = function(dest, destName, get) {
 },{}],"eT9VS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-// this is taken from the lecture slides for pouchdb
-// Create a user using pouchdb 
-// CRUD POST
 parcelHelpers.export(exports, "createUser", ()=>createUser);
 // Authenticate a user using bcrypt 
 parcelHelpers.export(exports, "authenticateUser", ()=>authenticateUser) // export async function addToBucketList(username, item) {
@@ -864,19 +861,28 @@ const db = new (0, _pouchdbDefault.default)("my_database");
 console.log("Database initialized", db);
 exports.default = db;
 async function createUser(email, password) {
-    const salt = (0, _bcryptjsDefault.default).genSaltSync(10);
-    const hashedPassword = (0, _bcryptjsDefault.default).hashSync(password, salt);
     try {
-        const result = await db.put({
-            _id: email,
-            password: hashedPassword,
-            type: "user",
-            bucket: []
-        });
-        return result;
+        await db.get(email);
+        return {
+            status: "error",
+            message: "User already exists"
+        };
     } catch (error) {
-        console.error("Error creating user:", error);
-        throw error; // Rethrow to handle it in server.js
+        if (error.name === "not_found") {
+            const salt = (0, _bcryptjsDefault.default).genSaltSync(10);
+            const hashedPassword = (0, _bcryptjsDefault.default).hashSync(password, salt);
+            const newUser = {
+                _id: email,
+                password: hashedPassword,
+                type: "user"
+            };
+            const result = await db.put(newUser);
+            return {
+                status: "success",
+                message: "User created successfully",
+                data: result
+            };
+        } else throw error;
     }
 }
 async function authenticateUser(email, password) {
