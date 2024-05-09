@@ -1,21 +1,34 @@
 {
+  "type": "module",
   "devDependencies": {
+    "concurrently": "^8.2.2",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
     "html-validate": "^8.11.1",
     "http-server": "^14.1.1",
     "parcel": "^2.12.0",
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "string_decoder": "^1.3.0",
+    "vm-browserify": "^1.1.2"
   },
   "scripts": {
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
     "validate-html": "html-validate src/**/*.html",
     "milestone-02": "http-server src/client -p 3000 -c-1 -o -s",
-    "start": "parcel index.html",
+    "start-server": "node src/server/server.js",
+    "start": "concurrently \"npm run start-server\" \"parcel src/client/index.html\"",
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "esm": "^3.2.25",
+    "express": "^4.19.2",
     "particles.js": "^2.0.0",
-    "pouchdb": "^8.0.1",
-    "pouchdb-browser": "^8.0.1"
+    "pouchdb": "^8.0.1"
   }
 }

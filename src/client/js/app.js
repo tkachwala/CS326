@@ -1,5 +1,5 @@
 // This file now just handles the login functionality
-import db from './db.js';
+import db from '../../server/db.js';
 
 // display typing effect - copy pasted from last milestone
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,30 +16,90 @@ document.addEventListener('DOMContentLoaded', () => {
     typeLetter();
 });
 
-//listener for login button
-const loginButton = document.querySelector('button');
-loginButton.addEventListener('click', () => {
-    const emailInput = document.getElementById('email').value;
-    login(emailInput);
+// Example for client-side, using fetch to interact with the server
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            const response = await fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+            const data = await response.json();
+            if (response.ok) {
+                console.log("Login successful:", data);
+                window.location.href = map.html
+            } else {
+                console.error("Login failed:", data.message);
+            }
+        } catch (error) {
+            console.error("Network error:", error);
+        }
+    });
 });
 
-//to handle login
+
 document.addEventListener('DOMContentLoaded', () => {
-    const loginButton = document.querySelector('button');
-    loginButton.addEventListener('click', () => {
-        const emailInput = document.getElementById('email').value;
-        login(emailInput);
-    });
-    function login(email) {
-        if (email === "user@example.com") {
-            console.log("Login successful for user@example.com");
-            window.location.href = 'map.html'; 
-            // we redirect to the map.html page once login is successful - more in depth implemenatation for backend milestone!
-        } else {
-            console.error("Login failed: email not recognized.");
+    const registerForm = document.getElementById('registerForm');
+    registerForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+
+        try {
+            const response = await fetch('/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+            const data = await response.json();
+            if (response.ok) {
+                console.log("Registration successful", data);
+                window.location.href = 'login.html'; // Redirect to login page or dashboard
+            } else {
+                console.error("Registration failed:", data.message);
+            }
+        } catch (error) {
+            console.error("Error during registration:", error);
         }
-    }
+    });
 });
+
+
+
+// //listener for login button
+// const loginButton = document.querySelector('button');
+// loginButton.addEventListener('click', () => {
+//     const emailInput = document.getElementById('email').value;
+//     login(emailInput);
+// });
+
+// //to handle login
+// document.addEventListener('DOMContentLoaded', () => {
+//     const loginButton = document.querySelector('button');
+//     loginButton.addEventListener('click', () => {
+//         const emailInput = document.getElementById('email').value;
+//         login(emailInput);
+//     });
+//     function login(email) {
+//         if (email === "user@example.com") {
+//             console.log("Login successful for user@example.com");
+//             window.location.href = 'map.html'; 
+//             // we redirect to the map.html page once login is successful - more in depth implemenatation for backend milestone!
+//         } else {
+//             console.error("Login failed: email not recognized.");
+//         }
+//     }
+// });
 
 // Initialize particle effect - used on the homepage - point is to manipulate properties 
 // change basic properties here to see changes 

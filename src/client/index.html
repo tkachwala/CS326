@@ -32,9 +32,21 @@
         </div>
     </div>
     <div id="welcome">
-        <input type="email" id="email" placeholder="Enter your email" required>
-        <button>Login</button>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
     </div>
+
+    <div id="register">
+        <form id="registerForm">
+            <input type="email" id="registerEmail" placeholder="Enter your email" required>
+            <input type="password" id="registerPassword" placeholder="Create a password" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    
 
     <button id="helpButton" style="position: fixed; top: 20px; right: 20px; width: 50px; height: 40px">Help</button>
     <div id="helpContent" style="display: none; position: fixed; bottom: 55px; left: 20px; background: black; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.25);">
