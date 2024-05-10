@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 app.use(cors());
 app.use(bodyParser.json());
 
-db.createUser('user@example.com', 'pass')
+db.createUser('user1@example.com', 'pass');
 // new user
 // server.js
 
