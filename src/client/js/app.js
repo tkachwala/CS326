@@ -35,9 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             if (response.ok) {
                 console.log("Login successful:", data);
-                window.location.href = map.html
+                window.location.replace('map.html');
+                console.log("redirected");
             } else {
                 console.error("Login failed:", data.message);
+                alert()
             }
         } catch (error) {
             console.error("Network error:", error);
@@ -46,59 +48,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const registerForm = document.getElementById('registerForm');
-    registerForm.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Prevent the form from submitting the traditional way
-        const email = document.getElementById('registerEmail').value;
-        const password = document.getElementById('registerPassword').value;
-
-        try {
-            const response = await fetch('/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            });
-            const data = await response.json();
-            if (response.ok) {
-                console.log("Registration successful", data);
-                window.location.href = 'login.html'; // Redirect to login page or dashboard
-            } else {
-                console.error("Registration failed:", data.message);
-            }
-        } catch (error) {
-            console.error("Error during registration:", error);
-        }
-    });
-});
-
-
-
-// //listener for login button
-// const loginButton = document.querySelector('button');
-// loginButton.addEventListener('click', () => {
-//     const emailInput = document.getElementById('email').value;
-//     login(emailInput);
-// });
-
-// //to handle login
 // document.addEventListener('DOMContentLoaded', () => {
-//     const loginButton = document.querySelector('button');
-//     loginButton.addEventListener('click', () => {
-//         const emailInput = document.getElementById('email').value;
-//         login(emailInput);
-//     });
-//     function login(email) {
-//         if (email === "user@example.com") {
-//             console.log("Login successful for user@example.com");
-//             window.location.href = 'map.html'; 
-//             // we redirect to the map.html page once login is successful - more in depth implemenatation for backend milestone!
-//         } else {
-//             console.error("Login failed: email not recognized.");
+//     const loginForm = document.getElementById('loginForm');
+//     loginForm.addEventListener('submit', async (event) => {
+//         event.preventDefault();
+//         const email = document.getElementById('').value;
+//         const password = document.getElementById('registerPassword').value;
+
+//         try {
+//             const response = await fetch('/users', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 },
+//                 body: JSON.stringify({ email, password })
+//             });
+//             const data = await response.json();
+//             if (response.ok) {
+//                 console.log("Registration successful", data);
+//                 window.location.href = 'map.html';
+//             } else {
+//                 console.error("Registration failed:", data.message);
+//             }
+//         } catch (error) {
+//             console.error("Error during registration:", error);
 //         }
-//     }
+//     });
 // });
 
 // Initialize particle effect - used on the homepage - point is to manipulate properties 

@@ -1,5 +1,4 @@
 // Import necessary items
-import db from './db.js';
 // we migjt need this db for add and get when we do the backend integration for the app
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -69,7 +68,6 @@ function createMarker(place, map) {
 }
 
 // this is an event listener for the bucker. if the event's target has an add to bucket button then you add it to the bucket list element using address and placeID 
-
 document.getElementById('info').addEventListener('click', function(event) {
     if (event.target.classList.contains('add-to-bucket')) {
         const buttonId = event.target.id;

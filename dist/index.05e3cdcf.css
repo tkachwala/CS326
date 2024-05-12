@@ -1,0 +1,237 @@
+header nav ul {
+  background-color: #333;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+header nav ul li {
+  float: left;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+header nav ul li a:hover {
+  color: #000;
+  background-color: #ddd;
+}
+
+html, body {
+  color: #fff;
+  background: #000;
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+}
+
+.main-container {
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#particles-js {
+  z-index: 0;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#animation-container {
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#welcome {
+  text-align: center;
+  z-index: 1;
+  background: #000000bf;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 600px;
+  padding: 20px;
+  position: absolute;
+  bottom: 20%;
+  right: 0%;
+  box-shadow: 0 4px 6px #0000001a;
+}
+
+#register {
+  text-align: center;
+  z-index: 1;
+  background: #000000bf;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 600px;
+  padding: 20px;
+  position: absolute;
+  bottom: 20%;
+  right: 100%;
+  box-shadow: 0 4px 6px #0000001a;
+}
+
+input[type="email"], button {
+  border: none;
+  border-radius: 4px;
+  width: 80%;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+input[type="password"], button {
+  border: none;
+  border-radius: 4px;
+  width: 30%;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #1f9541;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #00b321;
+}
+
+#typing-effect {
+  color: #0000;
+  z-index: 3;
+  text-align: center;
+  background: linear-gradient(to right, #22ab50, #13ff0b);
+  -webkit-background-clip: text;
+  width: 100%;
+  font-size: 90px;
+  font-weight: bold;
+  display: block;
+  position: absolute;
+  top: 40%;
+  left: 85%;
+  transform: translateX(-50%);
+}
+
+#map {
+  box-sizing: borderrgb(13, 232, 203);
+  background-color: #f0f0f0;
+  border: 5px solid #000000bf;
+  width: 60%;
+  height: 100%;
+  left: 20%;
+}
+
+.navbar {
+  color: #fff;
+  z-index: 1000;
+  background-color: #1f9541;
+  width: 100%;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar ul li a:hover {
+  color: #ddd;
+  background-color: #00b321;
+}
+
+.navbar ul li a {
+  transition: background-color .3s, color .3s;
+}
+
+#info {
+  box-sizing: border-box;
+  z-index: 1000;
+  background-color: #000;
+  width: 15%;
+  height: 30%;
+  padding: 20px;
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 60%;
+  right: 250px;
+  overflow-y: auto;
+  box-shadow: -2px 0 5px #6656851a;
+}
+
+#bucket-list {
+  color: #fff;
+  z-index: 1000;
+  background: #000000bf;
+  border: 5px solid #000000bf;
+  width: 20%;
+  height: 100%;
+  padding: 10px;
+  transition: all .3s ease-in-out;
+  position: fixed;
+  top: 6.5%;
+  left: 80%;
+  right: 0;
+  overflow-y: auto;
+}
+
+#bucket-list.show {
+  opacity: 1;
+  transform: translateY(-50%)translateX(0);
+}
+
+#bucket-list-items {
+  padding: 10px;
+  list-style-type: bullet;
+}
+
+#bucket-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+#bucket-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#bucket-list::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+#bucket-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/*# sourceMappingURL=index.05e3cdcf.css.map */

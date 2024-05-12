@@ -18,10 +18,11 @@
     "validate-html": "html-validate src/**/*.html",
     "milestone-02": "http-server src/client -p 3000 -c-1 -o -s",
     "start-server": "node src/server/server.js",
-    "start": "concurrently \"npm run start-server\" \"parcel src/client/index.html\"",
-    "build": "parcel build index.html"
+    "start": "concurrently \"npm run start-server\" \"parcel src/client/html/index.html src/client/html/map.html\"",
+    "build": "parcel build src/client/html/index.html src/client/html/map.html"
   },
   "dependencies": {
+    "@dotlottie/player-component": "^2.7.12",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
