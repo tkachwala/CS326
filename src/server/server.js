@@ -63,6 +63,35 @@ app.get('/bucketlist/:username', async (req, res) => {
     }
 });
 
+app.post('/add/:email', async (req, res) => {
+    const email = req.params.email;
+    const { name, address } = req.body;
+
+    try {
+        const result = await db.addBucketListItem(email, name, address);
+        if (result.ok) {
+            res.status(200).json({ message: result.message });
+        } else {
+            res.status(200).json({ message: result.message });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+    res.end();
+});
+
+
+app.get('/bucketlist/:email', async (req, res) => {
+    const email = req.params.email;
+    try {
+        const bucketList = await db.getBucketList(email);
+        res.status(200).json(bucketList);
+    } catch (error) {
+        res.status(404).send('User not found');
+    }
+    res.end();
+});
+
 // UPDATE route to update a bucket list item
 app.put('/bucketlist/:username/:index', async (req, res) => {
     const { username, index } = req.params;

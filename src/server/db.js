@@ -34,6 +34,7 @@ export async function createUser(email, password) {
 export async function authenticateUser(email, password) {
     try {
         const user = await db.get(email);
+        console.log('User found:', user);
         const isMatch = await bcrypt.compare(password, user.password);
         return isMatch ? user : null;
     } catch (error) {
@@ -102,3 +103,20 @@ export async function deleteBucketListItem(username, index) {
 
 
 
+export async function addBucketListItem(email, name, address) {
+    try {
+        const userDoc = await db.get(email);
+        userDoc.bucketList = userDoc.bucketList || [];
+        for (const item of userDoc.bucketList) {
+            if (item.name === name && item.address === address) {
+                return { status: 'error', message: 'Item already exists in bucket list' };
+            }
+        }
+        userDoc.bucketList.push({ name, address });
+        await db.put(userDoc);
+        return { status: 'success', message: 'Item added to bucket list' };
+    } catch (error) {
+        console.error('Error adding item to bucket list:', error);
+        throw error;
+    }
+}

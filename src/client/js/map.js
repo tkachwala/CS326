@@ -68,17 +68,40 @@ function createMarker(place, map) {
 }
 
 // this is an event listener for the bucker. if the event's target has an add to bucket button then you add it to the bucket list element using address and placeID 
-document.getElementById('info').addEventListener('click', function(event) {
+document.getElementById('info').addEventListener('click', async function(event) {
     if (event.target.classList.contains('add-to-bucket')) {
         const buttonId = event.target.id;
         const placeId = buttonId.replace('addButton-', '');
         const placeName = document.querySelector(`#info h2`).textContent;
         const placeAddress = document.querySelector(`#info p`).textContent;
-        addToBucketList(placeId, placeName, placeAddress);
+        try {
+            const response = await fetch(`http://localhost:3000/add/${localStorage.getItem("user")}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: placeName,
+                    address: placeAddress
+                })
+            });
+            const data = await response.json();
+            console.log('Data:', data);
+            console.log('Response:', response);
+            if (response.ok) {
+                if (data.message === 'Item already exists in bucket list') {
+                    alert(data.message);
+                } else {
+                    addToBucketList(placeName, placeAddress);
+                }
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 });
 
-window.addToBucketList = function(placeId, name, vicinity) {
+window.addToBucketList = function(name, vicinity) {
     const bucketList = document.getElementById('bucket-list-items');
     const newItem = document.createElement('li');
     newItem.innerHTML = `<strong>${name}</strong>: ${vicinity}`;
@@ -122,3 +145,26 @@ document.addEventListener('DOMContentLoaded', () => {
     filterOptions.style.display = show ? 'block' : 'none';
  }
  
+
+ window.addEventListener('load', async () => {
+    const email = localStorage.getItem('user');
+    // const places = 
+    try {
+        const response = await fetch(`http://localhost:3000/bucketlist/${email}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        
+        });
+        const data = await response.json();
+        console.log('Data:', data);
+        if (response.ok) {
+            data.forEach(item => {
+                addToBucketList(item.name, item.address);
+            });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+ })
