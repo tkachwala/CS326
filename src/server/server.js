@@ -56,7 +56,7 @@ app.post('/api/login', async (req, res) => {
 // GET route to retrieve a user's bucket list
 app.get('/bucketlist/:username', async (req, res) => {
     try {
-        const bucketList = await getBucketList(req.params.username);
+        const bucketList = await db.getBucketList(req.params.username);
         res.status(200).json(bucketList);
     } catch (error) {
         res.status(404).send('User not found');
@@ -68,7 +68,7 @@ app.put('/bucketlist/:username/:index', async (req, res) => {
     const { username, index } = req.params;
     const { newItem } = req.body;
     try {
-        const result = await updateBucketListItem(username, parseInt(index), newItem);
+        const result = await db.updateBucketListItem(username, parseInt(index), newItem);
         if (result.status === 'success') {
             res.status(200).json({ message: result.message });
         } else {
@@ -83,7 +83,7 @@ app.put('/bucketlist/:username/:index', async (req, res) => {
 app.delete('/bucketlist/:username/:index', async (req, res) => {
     const { username, index } = req.params;
     try {
-        const result = await deleteBucketListItem(username, parseInt(index));
+        const result = await db.deleteBucketListItem(username, parseInt(index));
         if (result.status === 'success') {
             res.status(200).json({ message: result.message });
         } else {
