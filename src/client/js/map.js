@@ -75,7 +75,7 @@ document.getElementById('info').addEventListener('click', async function(event) 
         const placeName = document.querySelector(`#info h2`).textContent;
         const placeAddress = document.querySelector(`#info p`).textContent;
         try {
-            const response = await fetch(`http://localhost:3000/add/${localStorage.getItem("user")}`, {
+            const response = await fetch(`http://localhost:3000/add/${sessionStorage.getItem("user")}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
  
 
  window.addEventListener('load', async () => {
-    const email = localStorage.getItem('user');
+    const email = sessionStorage.getItem('user');
     // const places = 
     try {
         const response = await fetch(`http://localhost:3000/bucketlist/${email}`, {

@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("Login successful:", data);
                 window.location.replace('map.html');
                 console.log("redirected");
+                sessionStorage.setItem('user', email);
             } else {
                 console.error("Login failed:", data.message);
                 alert()
