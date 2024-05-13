@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sessionStorage.setItem('user', email);
             } else {
                 console.error("Login failed:", data.message);
-                alert()
+                alert(data.message)
             }
         } catch (error) {
             console.error("Network error:", error);
