@@ -34,7 +34,6 @@ export async function createUser(email, password) {
 export async function authenticateUser(email, password) {
     try {
         const user = await db.get(email);
-        console.log('User found:', user);
         const isMatch = await bcrypt.compare(password, user.password);
         return isMatch ? user : null;
     } catch (error) {
@@ -42,18 +41,6 @@ export async function authenticateUser(email, password) {
         return null;
     }
 }
-
-// export async function addToBucketList(username, item) {
-//     const userDoc = await db.get(username);
-//     userDoc.bucketList.push(item);
-//     return db.put(userDoc);
-// }
-
-// // Get user's bucket list
-// export async function getBucketList(username) {
-//     const userDoc = await db.get(username);
-//     return userDoc.bucketList;
-// }
 
 // Get user's bucket list
 export async function getBucketList(username) {
@@ -66,37 +53,18 @@ export async function getBucketList(username) {
     }
 }
 
-// Update the bucket list 
-export async function updateBucketListItem(username, index, newItem) {
-    try {
-        const userDoc = await db.get(username);
-        userDoc.bucketList = userDoc.bucketList || [];
-        if (index >= 0 && index < userDoc.bucketList.length) {
-            userDoc.bucketList[index] = newItem;
-            await db.put(userDoc);
-            return { status: 'success', message: 'Bucket list updated successfully' };
-        } else {
-            return { status: 'error', message: 'Index out of range' };
-        }
-    } catch (error) {
-        console.error('Error updating bucket list item:', error);
-        throw error;
-    }
-}
-
 // Delete from the bucket list
-export async function deleteBucketListItem(username, index) {
+export async function deleteBucketListItem(email, name) {
     try {
-        const userDoc = await db.get(username);
-        if (index >= 0 && index < userDoc.bucketList.length) {
-            userDoc.bucketList.splice(index, 1);
-            await db.put(userDoc);
-            return { status: 'success', message: 'Bucket list item deleted successfully' };
-        } else {
-            return { status: 'error', message: 'Invalid item index' };
-        }
+        const user = await db.get(email);
+        user.bucketList = user.bucketList || [];
+        user.bucketList = user.bucketList.filter(item => {
+            return item.name !== name;
+        });
+        await db.put(user);
+        return { status: 'success', message: 'Item deleted from bucket list' };
     } catch (error) {
-        console.error('Error deleting bucket list item:', error);
+        console.error('Error deleting item from bucket list:', error);
         throw error;
     }
 }

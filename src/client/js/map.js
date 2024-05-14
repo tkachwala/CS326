@@ -86,8 +86,6 @@ document.getElementById('info').addEventListener('click', async function(event) 
                 })
             });
             const data = await response.json();
-            console.log('Data:', data);
-            console.log('Response:', response);
             if (response.ok) {
                 if (data.message === 'Item already exists in bucket list') {
                     alert(data.message);
@@ -104,17 +102,21 @@ document.getElementById('info').addEventListener('click', async function(event) 
 window.addToBucketList = function(name, vicinity) {
     const bucketList = document.getElementById('bucket-list-items');
     const newItem = document.createElement('li');
-    newItem.innerHTML = `<strong>${name}</strong>: ${vicinity} <button class="delete-item">❌</button>`;
+    newItem.innerHTML = `<strong>${name}</strong>: ${vicinity} <button class="delete-button">❌</button>`;
     bucketList.appendChild(newItem);
 
     // Add event listener to the delete button of this item
-    newItem.querySelector('.delete-item').addEventListener('click', async () => {
+    newItem.querySelector('.delete-button').addEventListener('click', async () => {
         try {
             // Send request to delete the item from the backend
             const response = await fetch(`http://localhost:3000/bucketlist/${sessionStorage.getItem("user")}/${name}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             });
-
+            const data = await response.json();
+            console.log('Data:', data.message);
             // Handle response
             if (response.ok) {
                 // Remove the item from the UI
@@ -180,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         });
         const data = await response.json();
-        console.log('Data:', data);
         if (response.ok) {
             data.forEach(item => {
                 addToBucketList(item.name, item.address);

@@ -11,6 +11,7 @@ const PORT = 3000;
 
 app.get('/', (req, res) => {
     res.send('Welcome to the API Server');
+    res.end();
 });
 
 app.use(cors());
@@ -61,9 +62,11 @@ app.get('/bucketlist/:username', async (req, res) => {
     } catch (error) {
         res.status(404).send('User not found');
     }
+    res.end();
 });
 
 app.post('/add/:email', async (req, res) => {
+    console.log('Add request received');
     const email = req.params.email;
     const { name, address } = req.body;
 
@@ -81,38 +84,13 @@ app.post('/add/:email', async (req, res) => {
 });
 
 
-app.get('/bucketlist/:email', async (req, res) => {
-    const email = req.params.email;
-    try {
-        const bucketList = await db.getBucketList(email);
-        res.status(200).json(bucketList);
-    } catch (error) {
-        res.status(404).send('User not found');
-    }
-    res.end();
-});
-
-// UPDATE route to update a bucket list item
-app.put('/bucketlist/:username/:index', async (req, res) => {
-    const { username, index } = req.params;
-    const { newItem } = req.body;
-    try {
-        const result = await db.updateBucketListItem(username, parseInt(index), newItem);
-        if (result.status === 'success') {
-            res.status(200).json({ message: result.message });
-        } else {
-            res.status(400).json({ message: result.message });
-        }
-    } catch (error) {
-        res.status(500).json({ message: "Failed to update item", error: error.message });
-    }
-});
-
 // DELETE route to delete a bucket list item
-app.delete('/bucketlist/:username/:index', async (req, res) => {
-    const { username, index } = req.params;
+app.delete('/bucketlist/:email/:name', async (req, res) => {
+    console.log('Delete request received');
+    const email = req.params.email;
+    const name = req.params.name;
     try {
-        const result = await db.deleteBucketListItem(username, parseInt(index));
+        const result = await db.deleteBucketListItem(email, name);
         if (result.status === 'success') {
             res.status(200).json({ message: result.message });
         } else {
@@ -120,7 +98,9 @@ app.delete('/bucketlist/:username/:index', async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ message: "Failed to delete item", error: error.message });
+    
     }
+    res.end();
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
