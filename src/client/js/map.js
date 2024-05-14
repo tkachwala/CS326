@@ -104,9 +104,31 @@ document.getElementById('info').addEventListener('click', async function(event) 
 window.addToBucketList = function(name, vicinity) {
     const bucketList = document.getElementById('bucket-list-items');
     const newItem = document.createElement('li');
-    newItem.innerHTML = `<strong>${name}</strong>: ${vicinity}`;
+    newItem.innerHTML = `<strong>${name}</strong>: ${vicinity} <button class="delete-item">❌</button>`;
     bucketList.appendChild(newItem);
+
+    // Add event listener to the delete button of this item
+    newItem.querySelector('.delete-item').addEventListener('click', async () => {
+        try {
+            // Send request to delete the item from the backend
+            const response = await fetch(`http://localhost:3000/bucketlist/${sessionStorage.getItem("user")}/${name}`, {
+                method: 'DELETE'
+            });
+
+            // Handle response
+            if (response.ok) {
+                // Remove the item from the UI
+                newItem.remove();
+                console.log('Item deleted successfully');
+            } else {
+                console.error('Failed to delete item:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error deleting item:', error);
+        }
+    });
 };
+
 
 /**
  * Function to escape HTML special characters.
