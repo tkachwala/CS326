@@ -1,16 +1,45 @@
 # Locality App
 Welcome to the Locality App! This application helps users explore nearby businesses and add them to their bucket list for future reference. Below is a guide to help you understand the project structure, setup instructions, and the key functionalities.
 
-## Project Structure
-The project consists of the following files and directories:
+## Milestone-03 requirements
 
-1. index.html: The main entry point for the application, where users can log in and access the main features.
-2. map.html: The page displaying the map, nearby locations, and the bucket list.
-3. app.js: Handles the login functionality and particle animation effect on the login page.
-4. map.js: Initialize the Google Map and handle location-related functionalities.
-5. db.js: Initializes the PouchDB database used in the application.
-6. styles.css: Contains the CSS styles for the application.
-7. README.md: Documentation file providing information about the project.
+### 1. Project Structure:
+
+We have a root dir called src, with client, server, and docs (milestone-01). 
+1. #### client:
+   contains js, html and css files
+1. #### server:
+   db.js, server.js
+
+
+### 2. Server setup: 
+express.js in server .js deployed and fulfils all requirements of the project
+
+
+### 3. DB: 
+performs CRUD and properly initialized.
+
+### .4. API Routes:
+
+
+All implemented in context to the "bucket list" feature in server.js
+
+### .5. Front-end Integration:
+
+works for the bucket list, maps, login methods.
+
+### 6. Error Handling:
+all done! see code for it,
+
+### 7. Development Script: 
+npm start loads all servers. 
+
+"start": "concurrently \"npm run start-server\" \"parcel src/client/html/index.html src/client/html/map.html\"",
+"build": "parcel build src/client/html/index.html src/client/html/map.html"
+
+.9. Documentation: ✅
+
+------------------------------
 
 ## Setup instructions
 Step 1: Clone the repository to your local machine.
@@ -47,4 +76,7 @@ Step 3: After the installation, write this command
    ![Help Button](images/help-button-pic.png)
 
 ## Note
-To access the application, use the email address "user@example.com".
+To access the application, use the email address "user1@example.com" with password "pass".
+
+
+
